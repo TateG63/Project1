@@ -12,13 +12,13 @@ const server = http.createServer((req, res) => {
         // Map routes to HTML files
         switch (url) {
             case '/':
-                filePath = path.join(__dirname, 'Project1', 'home.html');
+                filePath = path.join(__dirname, 'public', 'home.html');
                 break;
             case '/route1':
-                filePath = path.join(__dirname, 'Project1', 'project.html');
+                filePath = path.join(__dirname, 'public','project.html');
                 break;
             case '/route2':
-                filePath = path.join(__dirname, 'Project1', 'about.html');
+                filePath = path.join(__dirname, 'public','about.html');
                 break;
             default:
                 res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -51,4 +51,3 @@ const PORT = 3000;
 server.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
