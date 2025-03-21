@@ -9,7 +9,6 @@ const server = http.createServer((req, res) => {
     if (method === 'GET') {
         let filePath;
 
-        // Map routes to HTML files
         switch (url) {
             case '/':
                 filePath = path.join(__dirname, 'public', 'home.html');
@@ -25,13 +24,11 @@ const server = http.createServer((req, res) => {
                 return res.end('404 Not Found');
         }
 
-        // Check if file exists before reading
         if (!fs.existsSync(filePath)) {
             res.writeHead(404, { 'Content-Type': 'text/plain' });
             return res.end('404 Not Found - File does not exist');
         }
 
-        // Read and serve the file
         fs.readFile(filePath, (err, data) => {
             if (err) {
                 console.error("Error reading file:", err);
